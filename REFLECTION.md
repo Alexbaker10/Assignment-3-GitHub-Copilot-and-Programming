@@ -6,5 +6,3 @@ to my repository for me. I wasn't expecting this level for depth for a AI coding
 4. Since Copilot knows so much the python code is very streamlined. I noticed it using a lambda function with I have no experience with. I looked it up and learned about its one-time use which helps with having to come up with
 names for functions that will only be used once. Instead you can just use lambda to make the code less confusing.
 5. If I had to build this again I would take it more slowly. I feel like I rushed the first part of the assignment to fast.
-   
-    What would you do differently if you had to build this again?
