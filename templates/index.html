@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Converter</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Measurement Converter</h1>
+        <form method="POST">
+            <input type="number" step="any" name="value" placeholder="Enter value" required>
+            <select name="conversion">
+                <option value="inches_to_yards">Inches to Yards</option>
+                <option value="yards_to_centimeters">Yards to Centimeters</option>
+                <option value="centimeters_to_inches">Centimeters to Inches</option>
+                <option value="yards_to_inches">Yards to Inches</option>
+                <option value="inches_to_centimeters">Inches to Centimeters</option>
+                <option value="centimeters_to_yards">Centimeters to Yards</option>
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+        {% if result is not none %}
+            <div class="result">
+                <h2>Result: {{ result }}</h2>
+            </div>
+            <div class="visual-bars">
+                <div class="bar-label">Input Value: {{ request.form['value'] }}</div>
+                <div class="bar input-bar" style="width: {{ (request.form['value']|float / (result|float if result|float > request.form['value']|float else request.form['value']|float)) * 300 }}px;"></div>
+                <div class="bar-label">Converted Value: {{ result }}</div>
+                <div class="bar result-bar" style="width: {{ (result|float / (result|float if result|float > request.form['value']|float else request.form['value']|float)) * 300 }}px;"></div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
